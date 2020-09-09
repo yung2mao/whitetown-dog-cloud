@@ -1,0 +1,20 @@
+server:
+  port: 10001
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: @spring.active@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: @nacos.server.discovery.address@
+      config:
+        server-addr: @nacos.config.address@
+        file-extension: yaml
+        access-key: nacos
+        secret-key: nacos
+        ext-config:
+          - data-id: gateway.yaml
+            group: DEFAULT_GROUP
+            refresh: true

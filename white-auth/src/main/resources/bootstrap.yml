@@ -1,0 +1,24 @@
+server:
+  port: 10003
+spring:
+  application:
+    name: white-auth
+  profiles:
+    active: @spring.active@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: @nacos.server.discovery.address@
+      config:
+        server-addr: @nacos.config.address@
+        group: DEFAULT_GROUP
+        file-extension: yaml
+        access-key: nacos
+        secret-key: nacos
+        ext-config:
+          - data-id: datasource.yaml
+            group: WHITE_TOWN
+            refresh: true
+          - data-id: mybatis-plus.yaml
+            group: WHITE_TOWN
+            refresh: true
